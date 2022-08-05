@@ -41,7 +41,7 @@ public class ArtistController {
             return artist.get();
         }
     }
-    @RequestMapping(value = "/Artist/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/artist/{id}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.OK)
     public Artist updateArtist(@RequestBody Artist artist, @PathVariable Integer id){
 

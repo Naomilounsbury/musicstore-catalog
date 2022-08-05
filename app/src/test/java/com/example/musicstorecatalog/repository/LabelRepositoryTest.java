@@ -20,6 +20,7 @@ public class LabelRepositoryTest {
     private LabelRepository repo;
     @Before
     public void setUp()throws Exception{
+        repo.deleteAll();
 
     }
     @Test

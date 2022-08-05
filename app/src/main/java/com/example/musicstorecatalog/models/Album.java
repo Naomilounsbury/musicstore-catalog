@@ -1,27 +1,37 @@
 package com.example.musicstorecatalog.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+
 import java.util.Objects;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Table(name="album")
 public class Album {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="album_id")
     private Integer id;
+    @NotNull
     private String title;
+    @NotNull
     @Column(name="artist_id")
     private Integer artistId;
+
     @Column(name="release_date")
     private LocalDate releaseDate;
+    @NotNull
     @Column(name="label_id")
     private Integer labelId;
+
     @Column(name="list_price")
     private BigDecimal listPrice;
 

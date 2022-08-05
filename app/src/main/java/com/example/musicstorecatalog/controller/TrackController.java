@@ -21,7 +21,8 @@ public class TrackController {
     @RequestMapping(value = "/track", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Track createTrack(@RequestBody Track track) {
-        return repo.save(track);
+        track=repo.save(track);
+        return track;
     }
 
     @RequestMapping(value = "/track", method = RequestMethod.GET)

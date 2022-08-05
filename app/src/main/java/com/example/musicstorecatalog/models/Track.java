@@ -3,6 +3,7 @@ package com.example.musicstorecatalog.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -15,9 +16,12 @@ public class Track {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="track_id")
     private Integer id;
+    @NotNull
     @Column(name="album_id")
     private Integer albumId;
+    @NotNull
     private String title;
+    @NotNull
     @Column(name="run_time")
     private int runTime;
 
@@ -67,6 +71,19 @@ public class Track {
 
     public void setRunTime(int runTime) {
         this.runTime = runTime;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Track track = (Track) o;
+        return runTime == track.runTime && Objects.equals(id, track.id) && Objects.equals(albumId, track.albumId) && Objects.equals(title, track.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, albumId, title, runTime);
     }
 
     @Override

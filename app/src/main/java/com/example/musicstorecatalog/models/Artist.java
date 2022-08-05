@@ -3,6 +3,7 @@ package com.example.musicstorecatalog.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -13,6 +14,7 @@ public class Artist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="artist_id")
     private Integer id;
+    @NotNull
     private String name;
     private String instagram;
     private String twitter;

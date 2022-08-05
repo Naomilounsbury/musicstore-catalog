@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
+
+import java.time.LocalDate;
 
 @RestController
 public class AlbumController {
@@ -20,7 +21,7 @@ public class AlbumController {
 
     @RequestMapping(value = "/album", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
-    public Album createAlbum(@RequestBody Album album) {
+    public Album createAlbum(@Valid @RequestBody Album album) {
         return repo.save(album);
     }
 
